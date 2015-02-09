@@ -7,5 +7,9 @@
         android:id="@+id/preview"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent" />
+    
+    <view android:layout_width="fill_parent"
+          android:layout_height="wrap_content"
+          class="com.example.testgraphic.GLLayer" android:id="@+id/view"/>
 
 </RelativeLayout>

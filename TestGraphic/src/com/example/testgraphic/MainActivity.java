@@ -19,8 +19,10 @@ import android.view.Window;
 import android.view.WindowManager;
 
 public class MainActivity extends Activity implements
-		SensorEventListener , SurfaceHolder.Callback{
+		 SurfaceHolder.Callback{
 
+	//SensorEventListener
+	
 	/*
 	 * @Override protected void onCreate(Bundle savedInstanceState) {
 	 * super.onCreate(savedInstanceState);
@@ -30,42 +32,46 @@ public class MainActivity extends Activity implements
 	Float azimut; // View to draw a compass
 	Camera mCamera;
     SurfaceView mPreview;
+    GLLayer glView;
 
-	private SensorManager mSensorManager;
+	/*private SensorManager mSensorManager;
 	Sensor accelerometer;
-	Sensor magnetometer;
+	Sensor magnetometer;*/
 
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN 
                 | WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
-		setContentView(R.layout.activity_main); // Register the sensor listeners
+		//setContentView(R.layout.activity_main); // Register the sensor listeners
 
 		mPreview = (SurfaceView)findViewById(R.id.preview);
         mPreview.getHolder().addCallback(this);
         mPreview.getHolder().setType(SurfaceHolder.SURFACE_TYPE_PUSH_BUFFERS);
         
-		mSensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
+		/*mSensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
 		accelerometer = mSensorManager
 				.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
 		magnetometer = mSensorManager
-				.getDefaultSensor(Sensor.TYPE_MAGNETIC_FIELD);
+				.getDefaultSensor(Sensor.TYPE_MAGNETIC_FIELD);*/
 	}
 
 	protected void onResume() {
 		super.onResume();
-		mSensorManager.registerListener(this, accelerometer,
+		glView=new GLLayer(this);
+		/*mSensorManager.registerListener(this, accelerometer,
 				SensorManager.SENSOR_DELAY_UI);
 		mSensorManager.registerListener(this, magnetometer,
 				SensorManager.SENSOR_DELAY_UI);
-		Log.d("System","onResume");
+		Log.d("System","onResume");*/
+		//setContentView(glView);
+		setContentView(R.layout.activity_main);
 		mCamera = Camera.open();
 	}
 
 	protected void onPause() {		
 		super.onPause();
-		mSensorManager.unregisterListener(this);
+		//mSensorManager.unregisterListener(this);
 		Log.d("System","onPause");
 		mCamera.release();
 	}
@@ -102,7 +108,7 @@ public class MainActivity extends Activity implements
 
     public void surfaceDestroyed(SurfaceHolder arg0) { }
 	
-	float[] mGravity;
+	/*float[] mGravity;
 	float[] mGeomagnetic;
 
 	@Override
@@ -136,5 +142,5 @@ public class MainActivity extends Activity implements
 	public void onAccuracyChanged(Sensor sensor, int accuracy) {
 		// TODO Auto-generated method stub
 
-	}
+	}*/
 }

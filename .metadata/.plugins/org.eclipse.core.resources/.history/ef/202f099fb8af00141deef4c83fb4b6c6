@@ -1,0 +1,20 @@
+package com.example.testgraphic;
+
+import android.content.Context;
+import android.opengl.GLSurfaceView;
+
+public class GLLayer extends GLSurfaceView {
+
+	private Context context;
+	private PhoneOrientation phoneOri=new PhoneOrientation();
+	
+	public GLLayer(Context context) {
+		super(context);
+		// TODO Auto-generated constructor stub
+		this.context=context;
+		
+		this.setEGLConfigChooser(8, 8, 8, 8, 16, 0);
+		this.setRenderer(this);
+	}
+
+}
