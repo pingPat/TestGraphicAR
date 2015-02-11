@@ -1,6 +1,4 @@
 INDEX VERSION 1.126+D:\Tasks\TestAndroid\TestForGitHub\TestGraphicAR\.metadata\.plugins\org.eclipse.jdt.core
 1284074322.index
 848856923.index
-3099964238.index
 1918022594.index
-2801084871.index
