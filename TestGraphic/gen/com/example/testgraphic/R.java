@@ -2035,9 +2035,8 @@ containing a value of this type.
         public static final int action_mode_bar=0x7f0b0041;
         public static final int action_mode_bar_stub=0x7f0b0040;
         public static final int action_mode_close_button=0x7f0b0033;
-        public static final int action_settings=0x7f0b0055;
+        public static final int action_settings=0x7f0b0054;
         public static final int activity_chooser_view_content=0x7f0b0034;
-        public static final int activity_main=0x7f0b0052;
         public static final int always=0x7f0b0025;
         public static final int beginning=0x7f0b002c;
         public static final int book_now=0x7f0b0017;
@@ -2045,7 +2044,6 @@ containing a value of this type.
         public static final int buyButton=0x7f0b0013;
         public static final int buy_now=0x7f0b0018;
         public static final int buy_with_google=0x7f0b0019;
-        public static final int cameraSurfaceView=0x7f0b0053;
         public static final int checkbox=0x7f0b003c;
         public static final int classic=0x7f0b001a;
         public static final int collapseActionView=0x7f0b0026;
@@ -2053,7 +2051,7 @@ containing a value of this type.
         public static final int default_activity_button=0x7f0b0037;
         public static final int dialog=0x7f0b002a;
         public static final int disableHome=0x7f0b001f;
-        public static final int drawSurfaceView=0x7f0b0054;
+        public static final int drawSurfaceView=0x7f0b0053;
         public static final int dropdown=0x7f0b002b;
         public static final int edit_query=0x7f0b0046;
         public static final int end=0x7f0b002d;
@@ -2076,6 +2074,7 @@ containing a value of this type.
         public static final int never=0x7f0b0028;
         public static final int none=0x7f0b000a;
         public static final int normal=0x7f0b000b;
+        public static final int preview=0x7f0b0052;
         public static final int production=0x7f0b0010;
         public static final int progress_circular=0x7f0b0007;
         public static final int progress_horizontal=0x7f0b0008;

@@ -1,14 +1,13 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_main"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:layout_height="match_parent" >
     
-    <com.example.testgraphic.CameraSurfaceView
-        android:id="@+id/cameraSurfaceView"
+    <SurfaceView
+        android:id="@+id/preview"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent" />
+    
     
     <com.example.testgraphic.DrawSurfaceView
         android:id="@+id/drawSurfaceView"
@@ -16,4 +15,4 @@
         android:layout_height="fill_parent" />
     
 
-</FrameLayout>
+</RelativeLayout>

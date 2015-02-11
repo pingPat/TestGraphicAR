@@ -442,9 +442,8 @@ int id action_menu_presenter 0x7f0b0006
 int id action_mode_bar 0x7f0b0041
 int id action_mode_bar_stub 0x7f0b0040
 int id action_mode_close_button 0x7f0b0033
-int id action_settings 0x7f0b0055
+int id action_settings 0x7f0b0054
 int id activity_chooser_view_content 0x7f0b0034
-int id activity_main 0x7f0b0052
 int id always 0x7f0b0025
 int id beginning 0x7f0b002c
 int id book_now 0x7f0b0017
@@ -452,7 +451,6 @@ int id bottom 0x7f0b002f
 int id buyButton 0x7f0b0013
 int id buy_now 0x7f0b0018
 int id buy_with_google 0x7f0b0019
-int id cameraSurfaceView 0x7f0b0053
 int id checkbox 0x7f0b003c
 int id classic 0x7f0b001a
 int id collapseActionView 0x7f0b0026
@@ -460,7 +458,7 @@ int id decor_content_parent 0x7f0b0042
 int id default_activity_button 0x7f0b0037
 int id dialog 0x7f0b002a
 int id disableHome 0x7f0b001f
-int id drawSurfaceView 0x7f0b0054
+int id drawSurfaceView 0x7f0b0053
 int id dropdown 0x7f0b002b
 int id edit_query 0x7f0b0046
 int id end 0x7f0b002d
@@ -483,6 +481,7 @@ int id monochrome 0x7f0b001c
 int id never 0x7f0b0028
 int id none 0x7f0b000a
 int id normal 0x7f0b000b
+int id preview 0x7f0b0052
 int id production 0x7f0b0010
 int id progress_circular 0x7f0b0007
 int id progress_horizontal 0x7f0b0008

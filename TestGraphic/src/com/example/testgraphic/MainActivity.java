@@ -31,7 +31,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends Activity implements
-		SensorEventListener {
+		SensorEventListener , SurfaceHolder.Callback{
 
 	/*
 	 * @Override protected void onCreate(Bundle savedInstanceState) {
@@ -42,8 +42,8 @@ public class MainActivity extends Activity implements
 	private static final String TAG = "Compass";
 	private static boolean DEBUG = false;
 	Float azimut; // View to draw a compass
-	//Camera mCamera;
-    //SurfaceView mPreview;SurfaceHolder.Callback
+	Camera mCamera;
+    SurfaceView mPreview;
     private DrawSurfaceView mDrawView;
 
     LocationClient mLocationClient;
@@ -63,9 +63,9 @@ public class MainActivity extends Activity implements
 		//textView1 = (TextView) findViewById(R.id.textView1);
 		mDrawView = (DrawSurfaceView)findViewById(R.id.drawSurfaceView);
 
-		/*mPreview = (SurfaceView)findViewById(R.id.preview);
+		mPreview = (SurfaceView)findViewById(R.id.preview);
         mPreview.getHolder().addCallback(this);
-        mPreview.getHolder().setType(SurfaceHolder.SURFACE_TYPE_PUSH_BUFFERS);*/
+        mPreview.getHolder().setType(SurfaceHolder.SURFACE_TYPE_PUSH_BUFFERS);
         
 		mSensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
 		accelerometer = mSensorManager
@@ -73,32 +73,14 @@ public class MainActivity extends Activity implements
 		magnetometer = mSensorManager
 				.getDefaultSensor(Sensor.TYPE_MAGNETIC_FIELD);
 		
-		/*boolean result = isServicesAvailable();        
+		boolean result = isServicesAvailable();        
         if(result) {
             // ในเครื่องมี Google Play Services
         	mLocationClient = new LocationClient(this, mCallback, mListener);
         } else {
             // ในเครื่องไม่มี Google Play Services ติดตั้งอยู่
         	finish();
-        }*/
-        
-        LocationListener locationListener = new LocationListener() {
-            public void onLocationChanged(Location location) {
-            	//LatLng coordinate = new LatLng(location.getLatitude(),location.getLongitude());
-            	
-            	Log.d(TAG, "Location Changed");
-    			mDrawView.setMyLocation(location.getLatitude(), location.getLongitude());
-    			mDrawView.invalidate();
-            	
-                /*textView1.setText("Provider : " + location.getProvider() + "\n" 
-                        + "Latitude : " + location.getLatitude() + "\n" 
-                        + "Longitude : " + location.getLongitude() + "\n" 
-                        + "Accuracy : " + location.getAccuracy() + "m\n" 
-                        + "Speed : " + location.getSpeed() + "m/s\n"
-                        + "Bearing : " + location.getBearing() + "\n");
-                        //+ "Satellite : " + location.getExtras().getInt("satellites"));*/
-            }
-        };
+        }
 
 	}
 
@@ -112,7 +94,7 @@ public class MainActivity extends Activity implements
     	mLocationClient.disconnect();
     }
     
-    /*private ConnectionCallbacks mCallback = new ConnectionCallbacks() {
+    private ConnectionCallbacks mCallback = new ConnectionCallbacks() {
         public void onConnected(Bundle bundle) {
             // เชื่อมต่อกับ Google Play Services ได้
         	Toast.makeText(MainActivity.this, "Services connected", Toast.LENGTH_SHORT).show();
@@ -139,7 +121,7 @@ public class MainActivity extends Activity implements
     private boolean isServicesAvailable() {
         int resultCode = GooglePlayServicesUtil.isGooglePlayServicesAvailable(this);
         return (resultCode == ConnectionResult.SUCCESS);
-    }*/
+    }
 
         
 	protected void onResume() {
@@ -149,17 +131,17 @@ public class MainActivity extends Activity implements
 		mSensorManager.registerListener(this, magnetometer,
 				SensorManager.SENSOR_DELAY_UI);
 		Log.d("System","onResume");
-		//mCamera = Camera.open();
+		mCamera = Camera.open();
 	}
 
 	protected void onPause() {		
 		super.onPause();
 		mSensorManager.unregisterListener(this);
 		Log.d("System","onPause");
-		//mCamera.release();
+		mCamera.release();
 	}
 
-	/*public void surfaceChanged(SurfaceHolder arg0
+	public void surfaceChanged(SurfaceHolder arg0
             , int arg1, int arg2, int arg3) {
         Log.d("CameraSystem","surfaceChanged");
         Camera.Parameters params = mCamera.getParameters();
@@ -189,7 +171,7 @@ public class MainActivity extends Activity implements
         }
     }
 
-    public void surfaceDestroyed(SurfaceHolder arg0) { }*/
+    public void surfaceDestroyed(SurfaceHolder arg0) { }
 	
 	float[] mGravity;
 	float[] mGeomagnetic;
@@ -234,4 +216,21 @@ public class MainActivity extends Activity implements
 
 	}
 	
+	LocationListener locationListener = new LocationListener() {
+        public void onLocationChanged(Location location) {
+        	LatLng coordinate = new LatLng(location.getLatitude(),location.getLongitude());
+        	
+        	Log.d(TAG, "Location Changed");
+			mDrawView.setMyLocation(location.getLatitude(), location.getLongitude());
+			mDrawView.invalidate();
+        	
+            /*textView1.setText("Provider : " + location.getProvider() + "\n" 
+                    + "Latitude : " + location.getLatitude() + "\n" 
+                    + "Longitude : " + location.getLongitude() + "\n" 
+                    + "Accuracy : " + location.getAccuracy() + "m\n" 
+                    + "Speed : " + location.getSpeed() + "m/s\n"
+                    + "Bearing : " + location.getBearing() + "\n");
+                    //+ "Satellite : " + location.getExtras().getInt("satellites"));*/
+        }
+    };
 }
